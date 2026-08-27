@@ -9,23 +9,14 @@ export default function Contact() {
     
     const form = event.currentTarget;
     const formData = new FormData(form);
-    formData.append("_captcha", "false");
-
-    const formValues = Object.fromEntries(formData);
-
-    // Separating the email address securely to stop the system from stripping text
-    const targetUser = "rehash.cation1q";
-    const targetDomain = "icloud.com";
-    const endpoint = `https://formsubmit.co{targetUser}@${targetDomain}`;
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(formValues)
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
@@ -51,8 +42,15 @@ export default function Contact() {
       </div>
 
       <div className="bg-[#111] border border-zinc-800 rounded-2xl p-8 shadow-2xl">
-        <form onSubmit={onSubmit} className="space-y-6">
+        <form 
+          onSubmit={onSubmit} 
+          action={["https:", "", "formsubmit.co", "ajax", "rehash.cation1q@icloud.com"].join("/")}
+          method="POST" 
+          className="space-y-6"
+        >
+
           <input type="text" name="_honey" style={{ display: 'none' }} />
+          <input type="hidden" name="_captcha" value="false" />
           
           <div>
             <label className="block text-sm font-semibold text-gray-200 mb-2">
