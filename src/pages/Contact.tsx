@@ -14,6 +14,16 @@ export default function Contact() {
     // 2. Disable FormSubmit's external Captcha screen completely
     formData.append("_captcha", "false");
 
+    // 1. Removes the FormSubmit branding and styling from the email layout
+    formData.append("_template", "box");
+
+    // 2. Changes the email subject line so it doesn't look like automated spam
+    formData.append("_subject", "New Contact Form Submission from Deep Line Diving");
+
+    // 3. Puts the user's email into the "Reply-To" field so you can hit reply directly
+    formData.append("_replyto", formValues.email as string);
+
+
     const formValues = Object.fromEntries(formData);
 
     try {
