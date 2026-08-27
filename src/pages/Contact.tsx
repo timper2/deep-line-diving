@@ -71,7 +71,7 @@ export default function Contact() {
             <label className="block text-sm font-semibold text-gray-200 mb-2">
               Email Address
             </label>
-            <input type="email" name="_replyto" required className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="you@example.com" />
+            <input type="email" name="email" required className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="you@example.com" />
           </div>
 
           <div>
