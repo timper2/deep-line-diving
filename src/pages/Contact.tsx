@@ -10,10 +10,16 @@ export default function Contact() {
     const formData = new FormData(event.currentTarget);
 
     try {
-      // REPLACE THE EMAIL ADDRESS BELOW WITH YOUR ACTUAL EMAIL
+      // Convert the form data into a regular JSON format FormSubmit requires
+      const data = Object.fromEntries(formData);
+
       const response = await fetch("https://formsubmit.co/ajax/rehash.cation1q@icloud.com", {
         method: "POST",
-        body: formData
+        headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
       });
 
       if (response.ok) {
