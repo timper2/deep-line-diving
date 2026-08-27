@@ -59,7 +59,7 @@ export default function Contact() {
               Name
             </label>
             <input 
-              type="text" 
+              type="text"
               name="name" 
               required 
               className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" 
