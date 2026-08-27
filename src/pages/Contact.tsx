@@ -50,6 +50,8 @@ export default function Contact() {
         >
 
           <input type="text" name="_honey" style={{ display: 'none' }} />
+          <input type="hidden" name="_template" value="box" />
+          <input type="hidden" name="_subject" value="New Website Message Submission" />
           <input type="hidden" name="_captcha" value="false" />
           
           <div>
