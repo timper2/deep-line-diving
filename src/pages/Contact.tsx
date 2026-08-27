@@ -8,18 +8,16 @@ export default function Contact() {
     setStatus('loading');
     
     const formData = new FormData(event.currentTarget);
+    const formValues = Object.fromEntries(formData);
 
     try {
-      // Convert the form data into a regular JSON format FormSubmit requires
-      const data = Object.fromEntries(formData);
-
       const response = await fetch("https://formsubmit.co/ajax/rehash.cation1q@icloud.com", {
         method: "POST",
-        headers: { 
-            "Content-Type": "application/json",
-            "Accept": "application/json"
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(formValues)
       });
 
       if (response.ok) {
@@ -39,12 +37,8 @@ export default function Contact() {
       <p className="text-sm text-gray-500 mb-6">Drop a line, and we will get back to you as soon as possible.</p>
       
       <form onSubmit={onSubmit} className="space-y-4">
-        {/* Anti-spam honeypot field (hidden from real users) */}
         <input type="text" name="_honey" style={{ display: 'none' }} />
         
-        {/* Disables the FormSubmit fallback thank-you page to keep user on your site */}
-        <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
-
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input type="text" name="name" required className="w-full border border-gray-300 p-2 rounded text-gray-900" placeholder="John Doe" />
@@ -68,7 +62,7 @@ export default function Contact() {
 
         {status === 'success' && (
           <p className="text-sm mt-3 font-medium p-2 rounded text-center bg-green-50 text-green-700">
-            Message sent successfully! 
+            Message sent successfully!
           </p>
         )}
         {status === 'error' && (
