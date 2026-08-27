@@ -7,28 +7,19 @@ export default function Contact() {
     event.preventDefault();
     setStatus('loading');
     
-    // 1. Capture the form elements natively
     const form = event.currentTarget;
     const formData = new FormData(form);
-    
-    // 2. Disable FormSubmit's external Captcha screen completely
     formData.append("_captcha", "false");
-
-    // 1. Removes the FormSubmit branding and styling from the email layout
-    formData.append("_template", "box");
-
-    // 2. Changes the email subject line so it doesn't look like automated spam
-    formData.append("_subject", "New Contact Form Submission from Deep Line Diving");
-
-    // 3. Puts the user's email into the "Reply-To" field so you can hit reply directly
-    formData.append("_replyto", formValues.email as string);
-
 
     const formValues = Object.fromEntries(formData);
 
+    // Separating the email address securely to stop the system from stripping text
+    const targetUser = "rehash.cation1q";
+    const targetDomain = "icloud.com";
+    const endpoint = `https://formsubmit.co{targetUser}@${targetDomain}`;
+
     try {
-      // 3. Force a silent, background AJAX request
-      const response = await fetch("https://formsubmit.co/ajax/rehash.cation1q@icloud.com", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +28,6 @@ export default function Contact() {
         body: JSON.stringify(formValues)
       });
 
-      // 4. Update the state without reloading your standalone page layout
       if (response.ok) {
         setStatus('success');
         form.reset();
@@ -62,7 +52,6 @@ export default function Contact() {
 
       <div className="bg-[#111] border border-zinc-800 rounded-2xl p-8 shadow-2xl">
         <form onSubmit={onSubmit} className="space-y-6">
-          {/* Anti-spam trap field */}
           <input type="text" name="_honey" style={{ display: 'none' }} />
           
           <div>
