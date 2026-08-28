@@ -5,7 +5,8 @@ export type RouteId =
   | 'technical'
   | 'rebreather'
   | 'tryout'
-  | 'contact';
+  | 'contact'
+  | 'services';
 
 export interface RouteDef {
   id: RouteId;
@@ -15,12 +16,14 @@ export interface RouteDef {
 }
 
 export const ROUTES: RouteDef[] = [
+  // Keep all existing entries unchanged
   { id: 'home', path: '/', label: 'Home', short: 'Home' },
   { id: 'sidemount', path: '/sidemount', label: 'Sidemount', short: 'Sidemount' },
-  { id: 'cave', path: '/cave-diving', label: 'Cave Diving', short: 'Cave' },
-  { id: 'technical', path: '/technical-diving', label: 'Technical Diving', short: 'Technical' },
-  { id: 'rebreather', path: '/rebreather', label: 'Rebreather', short: 'Rebreather' },
-  { id: 'tryout', path: '/try-out', label: '1-Day Try-Out', short: 'Try-Out' },
+  { id: 'cave', path: '/cave', label: 'Cave Diving', short: 'Cave' },
+  { id: 'technical', path: '/technical', label: 'Technical Diving', short: 'Technical' },
+  { id: 'rebreather', path: '/rebreather', label: 'Rebreather', short: 'CCR' },
+  { id: 'tryout', path: '/tryout', label: 'Tryout', short: 'Tryout' },
+  { id: 'services', path: '/services', label: 'Services', short: 'Services' },
   { id: 'contact', path: '/contact', label: 'Contact', short: 'Contact' },
 ];
 
