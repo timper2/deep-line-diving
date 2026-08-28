@@ -11,6 +11,8 @@ const INTERESTS = [
   'Technical Diving',
   'Rebreather / KISS Sidewinder',
   '1-Day Technical Try-Out',
+  'Cave Guiding',
+  'Technical Mentoring',
   'Not sure yet',
 ];
 
