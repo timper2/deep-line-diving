@@ -24,7 +24,7 @@ function App() {
       case 'tryout':
         return <TryOut navigate={navigate} />;
       case 'services':
-        return <Services />;
+        return <Services navigate={navigate} />;
       case 'contact':
         return <Contact />;
       default:
