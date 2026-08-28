@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CoursePage from '@/components/CoursePage';
 import Home from '@/pages/Home';
+import Services from '@/pages/Services';
 import TryOut from '@/pages/TryOut';
 import Contact from '@/pages/Contact';
 import { COURSES } from '@/data/courses';
@@ -22,6 +23,8 @@ function App() {
         return <CoursePage content={COURSES.rebreather} navigate={navigate} />;
       case 'tryout':
         return <TryOut navigate={navigate} />;
+      case 'services':
+        return <Services />;
       case 'contact':
         return <Contact />;
       default:
