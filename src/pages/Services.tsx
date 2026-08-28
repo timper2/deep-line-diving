@@ -6,7 +6,7 @@ export default function Services() {
       icon: Compass,
       title: 'Cave Guiding',
       items: [
-        'Guided cave diving excursions tailored to your comfort level across North Florida's springs, including Peacock, Ginnie, and Cow Springs.',
+        "Guided cave diving excursions tailored to your comfort level across North Florida's springs, including Peacock, Ginnie, and Cow Springs.",
         'Full logistics coordination, site briefing, and gas planning support.',
       ],
     },
@@ -40,7 +40,7 @@ export default function Services() {
               Guidance for every depth.
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-              Whether you need an experienced guide or personalized technical mentorship, I offer tailored services for divers pursuing excellence in North Florida's premier cave systems.
+              Whether you need an experienced guide or personalized technical mentorship, I offer tailored services for divers pursuing excellence in North Florida&apos;s premier cave systems.
             </p>
           </div>
         </div>
@@ -50,6 +50,7 @@ export default function Services() {
         <div className="grid gap-8 md:grid-cols-2">
           {services.map((service) => {
             const Icon = service.icon;
+
             return (
               <div
                 key={service.title}
@@ -59,13 +60,18 @@ export default function Services() {
                   <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-xl bg-accent/15 ring-1 ring-accent/40 transition-all group-hover:bg-accent/25">
                     <Icon className="h-6 w-6 text-accent" />
                   </div>
+
                   <div className="flex-1">
                     <h2 className="font-display text-2xl font-bold tracking-tight text-white">
                       {service.title}
                     </h2>
+
                     <ul className="mt-6 space-y-4">
-                      {service.items.map((item, idx) => (
-                        <li key={idx} className="flex gap-3 text-sm leading-relaxed text-slate-300">
+                      {service.items.map((item, index) => (
+                        <li
+                          key={`${service.title}-${index}`}
+                          className="flex gap-3 text-sm leading-relaxed text-slate-300"
+                        >
                           <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                           <span>{item}</span>
                         </li>
@@ -90,8 +96,9 @@ export default function Services() {
                 Ready to dive deeper?
               </h2>
             </div>
+
             <p className="max-w-md text-sm leading-relaxed text-slate-400">
-              Contact me to discuss your goals and book your service. Let's design an experience tailored to your needs.
+              Contact me to discuss your goals and book your service. Let&apos;s design an experience tailored to your needs.
             </p>
           </div>
 
@@ -100,7 +107,9 @@ export default function Services() {
               href="mailto:contact@deeplinediving.com"
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-8 text-left transition-all hover:border-accent/50 hover:bg-slate-900/60"
             >
-              <h3 className="font-display text-xl font-bold text-white">Get in touch</h3>
+              <h3 className="font-display text-xl font-bold text-white">
+                Get in touch
+              </h3>
               <p className="mt-2 text-sm text-slate-300">
                 Discuss your goals and customize your service.
               </p>
@@ -114,7 +123,9 @@ export default function Services() {
               href="/"
               className="group relative overflow-hidden rounded-2xl border border-accent/30 bg-accent/10 p-8 text-left transition-all hover:bg-accent/20"
             >
-              <h3 className="font-display text-xl font-bold text-white">Explore courses</h3>
+              <h3 className="font-display text-xl font-bold text-white">
+                Explore courses
+              </h3>
               <p className="mt-2 text-sm text-slate-200">
                 View full training programs and certifications.
               </p>
